@@ -1,0 +1,36 @@
+@use '_colors' as *;
+@use '_reset';
+@use '_icons';
+@use '_mixins' as *;
+@use '_typo' as *;
+@use '_header';
+@use '_footer';
+
+
+
+
+.wrapper {
+   position: relative;
+   min-height: 100%;
+   overflow: clip;
+   display: flex;
+   flex-direction: column;
+}
+
+.wrapper>main {
+   flex-grow: 1;
+}
+
+[class*="__container"] {
+   max-width: 1080px;
+   margin: 0 auto;
+   padding-inline: toRem(15);
+
+}
+
+body {
+   font-family: "Montserrat",sans-serif;
+   font-weight: 700;
+}
+
+/* @import url('font.css'); */
