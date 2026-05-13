@@ -29,7 +29,7 @@
 // }
 @mixin typo($type: "h1"){
    @if $type =="h1"{
-      font-size: toRem(48);
+      @include adaptiveValue("font-size",48,38,0,1050,900);
       font-weight: 800;
       line-height: 1.33;
       font-family: "Open Sans",sans-serif;
