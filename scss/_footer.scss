@@ -20,7 +20,9 @@
          @include adaptiveValue("padding-block",80,50,0,1050,700);
          display: grid;
          grid-template-columns: 1fr toRem(240) toRem(240);
-         gap:toRem(19.5);
+         row-gap:toRem(5);
+         column-gap:toRem(19.5);
+
          @media (width < toEm(850)) {
          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
          column-gap: toRem(60);
@@ -80,6 +82,9 @@
             width: 100%;
             justify-content: space-between;
             align-items: center;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.06);
+            padding: toRem(10) toRem(10);
+            border-radius: toRem(10) toRem(10) toRem(10) toRem(10);
             &::before{
                rotate: 90deg;
             }
@@ -96,9 +101,13 @@
 		// .up-footer__list
 
 		&__list {
+         
          color: $grey-text-color;
          overflow: hidden;
          transition: height 0.3s;
+         li{
+            padding: toRem(5  );
+         }
          li:not(:last-child) {
             margin-bottom: toRem(10);
          }
@@ -138,7 +147,7 @@
    background-color: $light-bg;
 		// .down-footer__container
 // @include adaptiveValue('padding-block',25,20,0,1050,700);
-
+   
 		&__container {
          @include adaptiveValue('padding-block',25,20,0,1050,700);
          text-align: center;

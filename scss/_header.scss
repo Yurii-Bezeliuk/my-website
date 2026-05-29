@@ -7,8 +7,19 @@
 
 .header {
 		background-color: $light-bg;
-		
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: 50;
+		&--scroll{
+			.header__container{
+				transition: all 0.3s;
+				min-height: 69px;
+			}
+		}
 		&__container {
+			// transition: all 0.2s;
          display: flex;
          align-items: center;
 			@include adaptiveValue('min-height', 96, 70,0,1050, 768);
