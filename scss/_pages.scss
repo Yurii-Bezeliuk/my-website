@@ -1,607 +1,756 @@
-@use '_mixins' as *;
-@use '_typo' as *;
-@use '_icons';
-@use '_colors' as *;
-  
-
-
-
+@use "_mixins" as *;
+@use "_typo" as *;
+@use "_icons";
+@use "_colors" as *;
+@use "_components.scss" as *;
 
 [class*="__bgc"] {
-   position: absolute;
-         z-index: -20;
-         background-color: $bg-main;
-         width: 100%;
-         height: 100%;
-         top:0;
-         left:0;
-   
+  position: absolute;
+  z-index: -20;
+  background-color: $bg-main;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 }
 
 .pages {
-    @include adaptiveValue('padding-top', 96, 50,0,1050, 768);
+  @include adaptiveValue("padding-top", 96, 50, 0, 1050, 768);
 
-		// .pages__hero
+  // .pages__hero
 
-		&__hero {
-		}
-   }
+  &__hero {
+  }
+}
 .hero {
+  position: relative;
+  // aspect-ratio: 1440/689;
+  z-index: 0;
+
+  // .hero__container
+
+  &__container {
+    @include adaptiveValue("padding-top", 30, 15);
+    @include adaptiveValue("padding-bottom", 60, 15);
+    position: relative;
+    z-index: -1;
+    display: flex;
+    justify-content: space-between;
+    @media (width<=toEm(768)) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  &__body {
+    padding-top: toRem(53);
+  }
+
+  &__title {
+    max-width: toRem(440);
+    @include typo("h1");
+    @include adaptiveValue("margin-bottom", 25, 15);
+  }
+  span {
+    color: $color-primary;
+  }
+  // .hero__text
+
+  &__text {
+    @include adaptiveValue("max-width", 354, 300, 0, 790, 768);
+    @include typo("p");
+    @include adaptiveValue("margin-bottom", 54, 35);
+  }
+
+  // .hero__buttons
+
+  &__buttons {
+  }
+
+  // .hero__list
+
+  &__list {
+  }
+
+  &__img {
+    @media (width<=toEm(768)) {
+      display: none;
+    }
+  }
+  @media (width >=toEm(768)) {
+    &__img {
       position: relative;
-      // aspect-ratio: 1440/689;
-      z-index: 0;
-      
-		// .hero__container
+      @include adaptiveValue("max-width", 493, 400, 0, 950, 800);
+      @include adaptiveValue("max-height", 535, 442, 0, 950, 800);
+      flex-shrink: 0;
+    }
+    img {
+      width: 100%;
+      aspect-ratio: 493/535;
+      object-fit: contain;
+    }
+    &__elips {
+      position: absolute;
+      z-index: -3;
+      background-color: $shape-tone-4;
+      @include adaptiveValue("max-width", 421, 321, 0, 950, 800);
+      @include adaptiveValue("max-height", 421, 321, 0, 950, 800);
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      bottom: 0%;
+      left: 50%;
+      translate: -50% 0;
+    }
+  }
 
-		&__container {
-         @include adaptiveValue("padding-top",30,15);
-         @include adaptiveValue("padding-bottom",60,15);
-         position: relative;
-         z-index: -1;
-         display: flex;
-         justify-content: space-between;
-         @media (width<=toEm(768)) {
-            flex-direction: column;
-             align-items: center;
-             
-         }
-		}
-      &__body{
-         padding-top: toRem(53);
-      }
-
-      &__title{
-         max-width: toRem(440);
-         @include typo('h1');
-         @include adaptiveValue('margin-bottom',25,15);
-         
-      }
-      span{
-         color: $color-primary;
-      }
-		// .hero__text
-
-		&__text {
-         @include adaptiveValue('max-width',354,300,0, 790,768);
-         @include typo('p');
-         @include adaptiveValue('margin-bottom',54,35);
-		}
-
-		// .hero__buttons
-
-		&__buttons {
-
-		}
-
-		// .hero__list
-
-		&__list {
-		}
-
-		
-         &__img{
-            @media (width<=toEm(768)) {
-               display: none;
-            }
-         }
-         @media (width >=toEm(768)) {
-           &__img{
-         position: relative;
-         @include adaptiveValue('max-width',493,400,0,950,800);
-         @include adaptiveValue('max-height',535,442,0,950,800);
-         flex-shrink: 0;
-            
-         }
-         img{
-         width: 100%;
-         aspect-ratio: 493/535;
-         object-fit: contain;
-      }
-      &__elips{
-         position: absolute;
-         z-index: -3;
-         background-color: $shape-tone-4;
-         @include adaptiveValue('max-width',421,321,0,950,800);
-         @include adaptiveValue('max-height',421,321,0,950,800);
-         width: 100%;
-         height: 100%;
-         border-radius: 50%;
-         bottom:0%;
-         left: 50%;
-         translate: -50% 0;
-      }
-      }
-      
-
-      &__bgc{
-      
-      }
+  &__bgc {
+  }
 }
 .body {
 }
 .buttons {
+  display: flex;
+  @include adaptiveValue("gap", 24, 15, 0, 900, 320);
 
-	display: flex;
-      @include adaptiveValue('gap',24,15,0, 900,320);
+  @include adaptiveValue("margin-bottom", 52, 35);
 
-   @include adaptiveValue('margin-bottom',52,35);
+  &__btn {
+    padding: toRem(10) toRem(40);
+    background-color: $text-light;
+    border-radius: toRem(24);
+    @include typo("btn-txt");
+    color: $dark-text-color;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+    html:not([data-fls-touch]) & {
+      &:hover {
+        background-color: $color-primary;
+        color: $text-light;
+      }
+    }
 
-		&__btn {
-         padding: toRem(10) toRem(40);
-         background-color: $text-light;
-         border-radius: toRem(24);
-         @include typo('btn-txt');
-         color:$dark-text-color;
-         box-shadow: 0 2px 4px 0 rgba(0,0,0,.1);
-         transition: all 0.3s;
-         html:not([data-fls-touch]) &{
-            &:hover{
-               background-color: $color-primary;
-               color: $text-light;
-            }
-         }
-
-         @media (width<=toEm(360)) {
-            padding: toRem(10) toRem(25);
-         }
-		}
+    @media (width<=toEm(360)) {
+      padding: toRem(10) toRem(25);
+    }
+  }
 }
 .list-hero {
-
-		display: flex;
-      @include adaptiveValue('gap',19,5,0, 360,320);
-		&__item {
-         display: flex;
-         align-items: center;
-         position: relative;
-         @include typo('small');
-         padding: toRem(16) toRem(12) toRem(16) toRem(46);
-         &::before{
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            color: $bg-main;
-            width: toRem(24);
-            height:toRem(24);
-            background-color: $bg-dark;
-            border-radius: 50%;
-            position: absolute;
-            left: 10px;
-            top:50%;
-            translate:0 -50%;
-           
-            
-
-         }
-		}
+  display: flex;
+  @include adaptiveValue("gap", 19, 5, 0, 360, 320);
+  &__item {
+    display: flex;
+    align-items: center;
+    position: relative;
+    @include typo("small");
+    padding: toRem(16) toRem(12) toRem(16) toRem(46);
+    &::before {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      color: $bg-main;
+      width: toRem(24);
+      height: toRem(24);
+      background-color: $bg-dark;
+      border-radius: 50%;
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      translate: 0 -50%;
+    }
+  }
 }
 
 // ADVANTAGES
 
 .advantages {
-   position: relative;
-   .div:not(:last-child) {
-   margin-bottom: toRem(10);
-}
+  position: relative;
+  .div:not(:last-child) {
+    margin-bottom: toRem(10);
+  }
 
-		// .advantages__container
+  // .advantages__container
 
-       
-		&__container {
-         @include adaptiveValue('gap',31,15,0,1050,830);
-         display: flex;
-         flex-wrap: wrap;
-         @include adaptiveValue('padding-bottom',73,23);
-        
-         @media (width<=toEm(545)) {
-            flex-wrap: nowrap;
-            overflow: auto;            
-           
+  &__container {
+    @include adaptiveValue("gap", 31, 15, 0, 1050, 830);
+    display: flex;
+    flex-wrap: wrap;
+    @include adaptiveValue("padding-bottom", 73, 23);
 
-         }
-		}
+    @media (width<=toEm(545)) {
+      flex-wrap: nowrap;
+      overflow: auto;
+    }
+  }
 
-		// .advantages__item
+  // .advantages__item
 
-		&__item {
-          flex: 1 1 toRem(250);
-         @media (width<=toEm(545)) {
-            flex: 0 0 toRem(300);
-         }
-		}
+  &__item {
+    flex: 1 1 toRem(250);
+    @media (width<=toEm(545)) {
+      flex: 0 0 toRem(300);
+    }
+  }
 
-		// .advantages__img
+  // .advantages__img
 
-		
-      &__bgc{
-         height: 62.244%;
-      }
+  &__bgc {
+    height: 62.244%;
+  }
 }
 .advantage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  @include adaptiveValue("padding", 35, 20, 0, 1050, 820);
+  background-color: $bg-dark;
+  border-radius: toRem(8) toRem(8) toRem(8) toRem(8);
+  color: $light-text-color;
+  :not(:last-child) {
+    margin-bottom: toRem(20);
+  }
 
-		display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      @include adaptiveValue('padding',35,20,0,1050,820);
-      background-color: $bg-dark;
-      border-radius: toRem(8) toRem(8) toRem(8) toRem(8);
-      color: $light-text-color;
-      :not(:last-child) {
-         margin-bottom: toRem(20);
-      }
+  &__elips {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: toRem(72);
+    height: toRem(72);
+    border-radius: 50%;
+    background-color: $color-primary;
+    img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+    }
+  }
 
-		&__elips {
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         width: toRem(72);
-         height: toRem(72);
-         border-radius: 50%;
-         background-color: $color-primary;
-         img{
-            width: 40px;
-            height: 40px;
-            object-fit: contain;
-       }
-		}
-      
-       
-		
-		// .advantage__body
+  // .advantage__body
 
-		&__body {
-         
-		}
+  &__body {
+  }
 
-		// .advantage__title
+  // .advantage__title
 
-		&__title {
-         @include typo('h5')
-		}
+  &__title {
+    @include typo("h5");
+  }
 
-		// .advantage__text
+  // .advantage__text
 
-		&__text {
-         @include typo('p')
-		}
+  &__text {
+    @include typo("p");
+  }
 }
 // FEATURED
 .featured {
+  // .featured__container
 
-		// .featured__container
+  &__container {
+    @include adaptiveValue("padding-top", 100, 30, 0, 1050, 786);
+    @include adaptiveValue("padding-bottom", 128, 40, 0, 1050, 786);
+  }
 
-		&__container {
-         @include adaptiveValue('padding-top',100,30,0,1050,786);
-         @include adaptiveValue('padding-bottom',128,40,0,1050,786);
-		}
+  // .featured__heaader
 
-		// .featured__heaader
+  &__heaader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-		&__heaader {
-         display: flex;
-         justify-content: space-between;
-         align-items: center
-		}
+  // .featured__body
 
-		// .featured__body
-
-		&__body {
-		}
+  &__body {
+  }
 }
 .header-featured {
+  // .header-featured__title
+  margin-bottom: toRem(50);
 
-		// .header-featured__title
-      margin-bottom: toRem(50);
+  &__title {
+    @include typo("h2");
+    @include adaptiveValue("max-width", 355, 230, 0, 600, 500);
+    width: 100%;
+    color: $text-main;
+    letter-spacing: toRem(0.2);
+  }
 
-		&__title {
-         @include typo('h2');
-         @include adaptiveValue('max-width',355,230,0,600,500);
-         width: 100%;
-         color: $text-main;
-         letter-spacing: toRem(0.2);
-		}
+  // .header-featured__view-all
 
-		// .header-featured__view-all
+  &__view-all {
+    @include typo("btn-text");
+  }
 
-		&__view-all {
-         @include typo('btn-text');
-		}
-      
-      &__link{
-         position: relative;
-         padding-block:toRem(10) ;
-			&::after{
-				content: '';
-				position: absolute;
-				width: 0;
-				top: 100%;
-				left: 50%;
-				translate: -50%;
-				height: toRem(2);
-				transition: width 0.3s;
-				background-color:$grey-text-color;
-			}
-			html:not([data-fls-touch]) &{
-				&:hover{
-					&::after{
-						width: 100%;
-					}
-				}
-			}
-			
-		}
-      
+  &__link {
+    position: relative;
+    padding-block: toRem(10);
+    &::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      top: 100%;
+      left: 50%;
+      translate: -50%;
+      height: toRem(2);
+      transition: width 0.3s;
+      background-color: $grey-text-color;
+    }
+    html:not([data-fls-touch]) & {
+      &:hover {
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
 }
 .body-featured {
+  // .body-featured__card
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(toRem(328), 1fr));
+  gap: toRem(11);
+  &__card {
+    text-align: left;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 toRem(13) toRem(19) 0 rgba(0, 0, 0, 0.07);
+    border-radius: toRem(8) toRem(8) toRem(8) toRem(8);
+  }
 
-		// .body-featured__card
-   display: grid;
-   grid-template-columns: repeat(auto-fit, minmax(toRem(328), 1fr));
-   gap:toRem(11);
-		&__card {
-         text-align: left;
-         overflow: hidden;
-         display: flex;
-         align-items: center;
-         box-shadow: 0 toRem(13) toRem(19) 0 rgba(0,0,0,.07);
-         border-radius: toRem(8) toRem(8) toRem(8) toRem(8);
-        
-		}
+  // .body-featured__img
 
-		// .body-featured__img
+  &__img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 138/147;
+    max-width: toRem(138);
+    width: 100%;
+    img {
+      position: relative;
+      width: 100%;
+      padding: toRem(7);
+      object-fit: contain;
+    }
+  }
 
-		&__img {
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         aspect-ratio: 138/147;
-         max-width: toRem(138);
-         width: 100%;
-         img{
-            position: relative;
-            width: 100%;
-            padding: toRem(7);
-            object-fit: contain;
-               
-            }            
-         
-		}
-      
-		// .body-featured__body
+  // .body-featured__body
 
-		&__body {
-         
-         @include adaptiveValue('padding', 24, 20,0,1100,1030);
+  &__body {
+    @include adaptiveValue("padding", 24, 20, 0, 1100, 1030);
+  }
 
-		}
+  // .body-featured__title
 
-		// .body-featured__title
+  &__title {
+    @include typo("h5");
+    margin-bottom: toRem(4);
+    letter-spacing: toRem(0.1);
+    // color:$text-main;
+  }
 
-		&__title {
-         @include typo('h5');
-         margin-bottom: toRem(4);
-         letter-spacing: toRem(0.1);
-         // color:$text-main;
-		}
+  // .body-featured__subtitle
 
-		// .body-featured__subtitle
+  &__subtitle {
+    @include typo("h6");
+    margin-bottom: toRem(13);
+    color: $text-support;
+  }
 
-		&__subtitle {
-         @include typo('h6');
-         margin-bottom: toRem(13);
-         color:$text-support;
-		}
+  // .body-featured__star
 
-		// .body-featured__star
+  &__star {
+    margin-bottom: toRem(8);
+    color: $grey-text-color;
+    span {
+      width: toRem(13);
+      height: toRem(13);
+    }
+  }
 
-		&__star {
-         margin-bottom: toRem(8);
-         color:$grey-text-color;
-         span{
-            width: toRem(13);
-            height: toRem(13);
-         }
-		}
+  // .body-featured__comment
 
-		// .body-featured__comment
-
-		&__comment {
-         @include typo('small');
-         color:$muted-color;
-		}
+  &__comment {
+    @include typo("small");
+    color: $muted-color;
+  }
 }
 
 //BENEFIT
 
 .benefit {
+  // .benefit__container
+  &__container {
+    position: relative;
+    @include adaptiveValue("padding-top", 120, 50, 0, 1050, 786);
+    @include adaptiveValue("padding-bottom", 140, 70, 0, 1050, 786);
+    display: flex;
+    @include adaptiveValue("gap", 60, 10, 0, 1050, 800);
+  }
 
-		// .benefit__container
-		&__container {
-         position: relative;
-         @include adaptiveValue('padding-top',120,50,0,1050,786);
-         @include adaptiveValue('padding-bottom',140,70,0,1050,786);
-         display: flex;
-         @include adaptiveValue('gap',60,10,0,1050,800);
-         
-		}
+  // .benefit__picture
 
-		// .benefit__picture
+  &__picture {
+    padding: toRem(40) toRem(30) toRem(76) toRem(44);
+    position: relative;
+    @include adaptiveValue("max-width", 480, 430, 0, 1050, 950);
+    @include adaptiveValue("max-height", 702, 652, 0, 1050, 950);
+    flex-shrink: 0;
+    z-index: -1;
+    @media (width<toEm(950)) {
+      display: flex;
+      align-items: center;
+      padding: 0;
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+    @media (width<=toEm(850)) {
+      position: absolute;
+      left: 50%;
+      translate: -50% 0;
+      opacity: 0.15;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    @media (width<=toEm(400)) {
+      img {
+        display: none;
+      }
+    }
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: toRem(180);
+      height: toRem(180);
+      z-index: -2;
+    }
+    &::before {
+      top: 0;
+      left: 0;
+      background-color: $color-tonal-1;
+    }
+    &::after {
+      bottom: 0;
+      right: 0;
+      background-color: $color-tonal-2;
+    }
 
-		&__picture {
-         padding: toRem(40) toRem(30) toRem(76) toRem(44);
-         position: relative;
-         @include adaptiveValue('max-width',480,430,0,1050,950);
-         @include adaptiveValue('max-height',702,652,0,1050,950);
-         flex-shrink: 0;
-         z-index: -1;
-         @media (width<toEm(950)) {
-            display: flex;
-            align-items: center;
-            padding: 0;
-            &::before,
-           &::after{
-            display: none;
-           }
-         }
-         @media (width<=toEm(850)) {
-            position: absolute;
-            left: 50%;
-            translate: -50% 0;
-            opacity:0.15;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            
-         }
-         @media (width<=toEm(400)) {
-            img{
-               display: none;
-            }
-         }
-           &::before,
-           &::after{
-               content: '';
-               position: absolute;
-               width: toRem(180);
-               height: toRem(180);
-               z-index: -2;
-            }
-            &::before{
-               top: 0;
-               left:0;
-               background-color: $color-tonal-1;
-            }
-            &::after{
-               bottom: 0;
-               right: 0;
-               background-color: $color-tonal-2;
-            }
+    img {
+      aspect-ratio: 406/586;
+      border-radius: toRem(25) 0 toRem(25) 0;
+      object-fit: contain;
+    }
+  }
 
-         
+  // .benefit__body
 
-
-         img{
-            aspect-ratio: 406/586;
-            border-radius: toRem(25) 0 toRem(25) 0;
-            object-fit: contain;
-         }
-		}
-
-		// .benefit__body
-
-		&__body {
-         margin:0 auto;
-         p{
-            width: 100%;
-         }
-		}
-      
+  &__body {
+    margin: 0 auto;
+    p {
+      width: 100%;
+    }
+  }
 }
 .body-benefit {
-      @media (width>toEm(950)) {
-         padding-top: toRem(40);
-      }
-		// .body-benefit__title
-		&__title {
-         @include typo('h2');
-         margin-bottom: toRem(24);
-		}
+  @media (width>toEm(950)) {
+    padding-top: toRem(40);
+  }
+  // .body-benefit__title
+  &__title {
+    @include typo("h2");
+    margin-bottom: toRem(24);
+  }
 
-		// .body-benefit__text
+  // .body-benefit__text
 
-		&__text {
-         @include typo('p');
-         color: $text-support;
-         text-align: left;
-         max-width: toRem(500);
-         @include adaptiveValue('margin-bottom',47,27,0,1050,950);
+  &__text {
+    @include typo("p");
+    color: $text-support;
+    text-align: left;
+    max-width: toRem(500);
+    @include adaptiveValue("margin-bottom", 47, 27, 0, 1050, 950);
 
-         p{
-            width: 100%;
-         }
-		}
+    p {
+      width: 100%;
+    }
+  }
 
-		// .body-benefit__items
+  // .body-benefit__items
 
-		&__items {
-		}
+  &__items {
+  }
 }
 .items-benefit {
+  .item:not(:first-child) {
+    @include adaptiveValue("margin-bottom", 47, 27, 0, 1050, 950);
+  }
 
-	.item:not(:first-child) {
-               @include adaptiveValue('margin-bottom',47,27,0,1050,950);
-
-   }
-
-		&__item {
-		}
+  &__item {
+  }
 }
 .item {
-   padding: toRem(24);
-   border-radius: toRem(25);
-   max-height: toRem(120);
-   height: 100%;
-   display: flex;
-   align-items: center;
-   @include adaptiveValue('gap',24,15,0,1050,800);
-   
- 
+  padding: toRem(24);
+  border-radius: toRem(25);
+  max-height: toRem(120);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  @include adaptiveValue("gap", 24, 15, 0, 1050, 800);
 
-   &--accent{
-      background-color: $bg-dark;
-      color: $light-text-color;
-      @include adaptiveValue('margin-bottom',62,42,0,1050,950);
+  &--accent {
+    background-color: $bg-dark;
+    color: $light-text-color;
+    @include adaptiveValue("margin-bottom", 62, 42, 0, 1050, 950);
+  }
+  &__img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: toRem(72);
+    height: toRem(72);
+    width: 100%;
+    background-color: $color-tonal-1;
+    border-radius: 50%;
+    img {
+      width: toRem(40);
+      height: toRem(40);
+      object-fit: contain;
+    }
+  }
+  &__img--circle-gren {
+    background-color: $color-tonal-2;
+    img {
+      width: 16px;
+    }
+  }
+  &__img--circle-orange {
+    background-color: $color-tonal-3;
+  }
 
-   }
-		&__img {
-         display: flex;
-         align-items: center;
-         justify-content:center;
-         max-width: toRem(72);
-         height: toRem(72);
-         width: 100%;
-         background-color: $color-tonal-1;
-         border-radius: 50%;
-         img{
+  // .item__body
 
-            width: toRem(40);
-            height: toRem(40);
-            object-fit: contain;
-            
-         }
-		}
-      &__img--circle__gren{
-         background-color: $color-tonal-2;
-         img{
-            width: 16px;
-         }
-      }
-      &__img--circle__orange{
-         background-color: $color-tonal-3;
-      }
-
-		// .item__body
-
-		&__body {
-		}
+  &__body {
+  }
 }
 .body-item {
-      max-width:toRem(350);
-      width: 100%;
+  max-width: toRem(350);
+  width: 100%;
 
-		&__title {
-         @include typo('h5');
-         margin-bottom: toRem(5);
+  &__title {
+    @include typo("h5");
+    margin-bottom: toRem(5);
+  }
+
+  // .body-item__text
+
+  &__text {
+    @include typo("p");
+  }
+}
+
+//JOIN-US
+
+.join-us {
+  // .join-us__container
+  position: relative;
+  z-index: 0;
+
+  &__container {
+    @include adaptiveValue("padding-top", 110, 50, 0, 1050, 700);
+    @include adaptiveValue("padding-bottom", 98, 38, 0, 1050, 700);
+  }
+
+  // .join-us__title
+
+  &__title {
+    text-align: center;
+    @include typo("h1");
+    color: $light-text-color;
+    @include adaptiveValue("margin-bottom", 25, 15); //, 0, 1050, 786
+  }
+
+  // .join-us__text
+
+  &__text {
+    @include typo("p");
+    margin: 0 auto;
+    color: $light-text-color;
+    max-width: toRem(500);
+    @include adaptiveValue("margin-bottom", 92, 32); //, 0, 1050, 786
+  }
+
+  // .join-us__plans
+
+  &__plans {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(toRem(280), 1fr));
+    gap: toRem(8);
+    align-items: start;
+    @media (toEm(556) <= width <= toEm(886)) {
+      display: flex;
+      gap: toRem(8);
+      column-gap: toRem(20);
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      align-items: flex-start;
+      & > * {
+        flex: 0 0 auto;
       }
+    }
+  }
 
-		// .body-item__text
+  // .join-us__bg
 
-		&__text {
-         
-         @include typo('p')
-		}
+  &__bgc {
+    background-color: $bg-dark;
+    height: 61.75%;
+  }
+}
+.plans {
+  // .plans__item
+
+  &__item {
+    color: $dark-text-color;
+    border-radius: toRem(8);
+    background-color: $light-text-color;
+    box-shadow: 0 13px 19px 0 rgba(0, 0, 0, 0.07);
+    // padding: toRem(40);
+    @include adaptiveValue("padding", 40, 20);
+    > :not(:last-child) {
+      @include adaptiveValue("margin-bottom", 17, 10);
+    }
+  }
+  &__item--favorite {
+    background-color: $bg-main;
+    padding: toRem(58) toRem(40);
+  }
+}
+.plan {
+  //
+
+  &__title {
+    @include typo("h5");
+    color: $dark-text-color;
+  }
+
+  // .plan__header
+
+  &__header {
+    display: flex;
+    @include adaptiveValue("gap", 16, 10);
+    align-items: center;
+    justify-content: start;
+  }
+
+  &__line {
+    min-height: toRem(4);
+    height: toRem(4);
+    width: 14%;
+    background-color: $color-primary;
+  }
+  // .plan__text
+
+  &__text {
+    @include typo("small");
+    color: $text-support;
+  }
+
+  // .plan__list
+
+  &__list {
+    li:not(:last-child) {
+      margin-bottom: toRem(15);
+    }
+  }
+
+  // .plan__btn
+
+  &__btn {
+    padding: toRem(14);
+    color: $dark-text-color;
+    width: 100%;
+    border: toRem(1) solid $bg-dark;
+    border-radius: toRem(24);
+    text-align: center;
+    transition: all 0.3s;
+    &--primary {
+      color: #fff;
+      border: none;
+      background-color: $color-primary;
+      padding: toRem(15);
+    }
+    html:not([data-fls-touch]) & {
+      &:hover {
+        background-color: $dark-bg;
+        color: $light-text-color;
+      }
+    }
+  }
+}
+.pricing {
+  // .pricing__price
+
+  &__price {
+    @include typo("h2");
+  }
+
+  // .pricing__info
+
+  &__info {
+  }
+
+  // .pricing__period
+
+  &__period {
+    @include typo("h5");
+    letter-spacing: toRem(0.1);
+  }
+
+  // .pricing__discount
+
+  &__discount {
+    @include typo("small");
+    color: $text-support;
+    letter-spacing: toRem(0.2);
+  }
+}
+.list-plan {
+  &__item {
+    @include typo("h6");
+    position: relative;
+    padding: toRem(4) 0;
+    padding-left: toRem(42);
+    text-align: left;
+    letter-spacing: 0.2px;
+    max-width: toRem(251);
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      translate: 0 -50%;
+      left: 0;
+      z-index: 25;
+      width: toRem(32);
+      height: toRem(32);
+      border-radius: 50%;
+      background-color: #2dc071;
+      background-image: url(../img/join-us/done.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+  &__item--disabled {
+    &::before {
+      background-color: $muted-color;
+    }
+  }
 }

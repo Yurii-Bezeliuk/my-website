@@ -1,0 +1,17 @@
+// @use "_mixins" as *;
+// @use "_typo" as *;
+// @use "_icons";
+// @use "_colors" as *;
+
+// .btn--primary {
+//   @include typo("btn-txt");
+//   background-color: $primary-color;
+//   transition: all 0.3s;
+//   border: 1px solid red;
+//   html:not([data-fls-touch]) & {
+//     &:hover {
+//       background-color: $dark-text-color;
+//       color: $text-light;
+//     }
+//   }
+// }
