@@ -108,28 +108,17 @@
 }
 .body {
 }
+// .btn {
+// }
 .buttons {
   display: flex;
   @include adaptiveValue("gap", 24, 15, 0, 900, 320);
 
   @include adaptiveValue("margin-bottom", 52, 35);
-
   &__btn {
     padding: toRem(10) toRem(40);
-    background-color: $text-light;
-    border-radius: toRem(24);
-    @include typo("btn-txt");
-    color: $dark-text-color;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
-    transition: all 0.3s;
-    html:not([data-fls-touch]) & {
-      &:hover {
-        background-color: $color-primary;
-        color: $text-light;
-      }
-    }
-
-    @media (width<=toEm(360)) {
+    @media (width<=toEm(361)) {
       padding: toRem(10) toRem(25);
     }
   }
@@ -312,6 +301,7 @@
   grid-template-columns: repeat(auto-fit, minmax(toRem(328), 1fr));
   gap: toRem(11);
   &__card {
+    position: relative;
     text-align: left;
     overflow: hidden;
     display: flex;
@@ -351,6 +341,20 @@
     letter-spacing: toRem(0.1);
     // color:$text-main;
   }
+  &__link {
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+    }
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 
   // .body-featured__subtitle
 
@@ -362,13 +366,10 @@
 
   // .body-featured__star
 
-  &__star {
+  &__rating {
     margin-bottom: toRem(8);
     color: $grey-text-color;
-    span {
-      width: toRem(13);
-      height: toRem(13);
-    }
+    color: $grey-text-color;
   }
 
   // .body-featured__comment
@@ -598,7 +599,6 @@
     @media (toEm(556) <= width <= toEm(886)) {
       display: flex;
       gap: toRem(8);
-      column-gap: toRem(20);
       flex-wrap: nowrap;
       overflow-x: auto;
       align-items: flex-start;
@@ -675,24 +675,12 @@
   // .plan__btn
 
   &__btn {
-    padding: toRem(14);
-    color: $dark-text-color;
-    width: 100%;
+    padding: toRem(6) 0;
+    @include adaptiveValue("min-width", 271, 200, 0, 400, 320);
     border: toRem(1) solid $bg-dark;
-    border-radius: toRem(24);
-    text-align: center;
-    transition: all 0.3s;
-    &--primary {
-      color: #fff;
-      border: none;
-      background-color: $color-primary;
-      padding: toRem(15);
-    }
-    html:not([data-fls-touch]) & {
-      &:hover {
-        background-color: $dark-bg;
-        color: $light-text-color;
-      }
+    &--blue {
+      padding: toRem(10) 0;
+      border: toRem(1) solid $primary-color;
     }
   }
 }
@@ -752,5 +740,204 @@
     &::before {
       background-color: $muted-color;
     }
+  }
+}
+//RESPONSE//
+
+.reviews {
+  // .reviews__container
+
+  &__container {
+    position: relative;
+    @include adaptiveValue("padding-top", 135, 30);
+    @include adaptiveValue("padding-bottom", 87, 30);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  // .reviews__slider
+  &__title {
+    @include typo("h2");
+    @include adaptiveValue("margin-bottom", 110, 40);
+    text-align: center;
+  }
+  &__slider {
+  }
+}
+
+.swiper {
+  width: 100%;
+  &__bg {
+    display: none;
+  }
+  @media (width>=toEm(600)) {
+    &__bg {
+      display: block;
+      position: absolute;
+      overflow: hidden;
+      @media (width<=toEm(1050)) {
+        &--left-bottom,
+        &--right--bottom {
+          display: none;
+        }
+      }
+      &--left-top {
+        top: 0;
+        left: toRem(15);
+        width: toRem(32);
+        aspect-ratio: 1;
+      }
+      &--left-middle {
+        top: toRem(94);
+        // @include adaptiveValue("left", 70, 10);
+        left: toRem(70);
+        width: toRem(71);
+        aspect-ratio: 1;
+      }
+      &--left-bottom {
+        top: toRem(333);
+        left: toRem(0);
+        width: toRem(106);
+        aspect-ratio: 1;
+      }
+      &--right-top {
+        top: toRem(36);
+        right: toRem(126);
+        width: toRem(46);
+        aspect-ratio: 1;
+      }
+      &--right-middle {
+        @include adaptiveValue("top", 208, 50);
+        // top: toRem(208);
+        right: toRem(0);
+        width: toRem(87);
+        aspect-ratio: 1;
+      }
+    }
+  }
+}
+.swiper-wrapper {
+}
+.swiper-slide {
+}
+.item-review {
+  position: relative;
+  max-width: toRem(885);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  &__avatar {
+    border-radius: 50%;
+    aspect-ratio: 1;
+    width: toRem(128);
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 16, 10);
+    }
+  }
+
+  // .slider__title
+
+  &__author {
+    @include typo("h6");
+    &:not(:last-child) {
+      margin-bottom: toRem(5);
+    }
+  }
+
+  // .slider__position
+
+  &__position {
+    @include typo("small");
+    color: $text-support;
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 32, 15);
+    }
+  }
+
+  // .slider__star
+
+  &__rating {
+    &:not(:last-child) {
+      @include adaptiveValue("margin-bottom", 16, 10);
+    }
+  }
+
+  // .slider__text
+
+  &__text {
+    @include typo("h4");
+    color: $text-support;
+    p {
+      :not(:last-child) {
+        margin-bottom: toRem(10);
+      }
+    }
+  }
+}
+.swiper-pagination {
+  position: static;
+  display: flex;
+  justify-content: center;
+  gap: toRem(17);
+  @include adaptiveValue("padding-top", 157, 27);
+}
+.swiper-pagination-bullet {
+  margin: 0;
+  height: toRem(17);
+  width: toRem(17);
+}
+
+//GET_STARTED//
+.banner {
+  // .banner__container
+  position: relative;
+
+  &__container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    @include adaptiveValue("padding-block", 75, 40);
+    @include adaptiveValue("gap", 59, 20);
+    @media (width<=toEm(645)) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  // .banner__content
+
+  &__content {
+    max-width: toRem(405);
+    :not(:last-child) {
+      @include adaptiveValue("margin-bottom", 25, 15);
+    }
+    @media (width<=toEm(645)) {
+      text-align: center;
+    }
+  }
+
+  // .banner__btn
+
+  &__btn {
+    padding: toRem(10) toRem(32);
+  }
+  &__bgc {
+    width: 100%;
+  }
+}
+.content-banner {
+  &__title {
+    @include typo("h2");
+  }
+  &__text {
+    @include typo("p");
+    color: $grey-text-color;
   }
 }

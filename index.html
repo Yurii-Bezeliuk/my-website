@@ -14,6 +14,8 @@
       <link
          href="https://fonts.googleapis.com/css2?family=Open%20Sans:wght@700&display=swap"
          rel="stylesheet">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
       <link rel="stylesheet" href="css/style.css">
 
       <title>LearnXpert</title>
@@ -58,8 +60,8 @@
                   </div>
 
                   <div class="hero__buttons buttons">
-                     <button class="buttons__btn">Join Class</button>
-                     <button class="buttons__btn">Get Started</button>
+                     <button class="buttons__btn btn btn--blue">Join Class</button>
+                     <button class="buttons__btn btn">Get Started</button>
                   </div>
                   <ul class="hero__list list-hero">
                      <li class="list-hero__item list-hero__item--icon-done">Make a Claim</li>
@@ -144,13 +146,52 @@ information about atomic.</p>
 
                   <div class="featured__body body-featured">
                      <article class="body-featured__card">
-                        <div class="body-featured__img">
-                           <img class="body-featured__icon" src="img/featured/01.png" alt="">
+                        
+                           <div class="body-featured__img">
+                           <img class="body-featured__icon" src="img/featured/01.webp" alt="">
                         </div>
                         <div class="body-featured__body">
-                           <h3 class="body-featured__title">Figma UI Design</h3>
+                           <h3 class="body-featured__title"><a class="body-featured__link" href="#">Figma UI Design</a></h3>
                            <div class="body-featured__subtitle">Esther Howard</div>
-                           <div class="body-featured__star">
+                           <div class="body-featured__rating rating">
+                              <span class="body-featured__icon body-featured__icon--icon-star"></span>
+                              <span class="body-featured__icon body-featured__icon--icon-star"></span>
+                              <span class="body-featured__icon body-featured__icon--icon-star"></span>
+                              <span class="body-featured__icon body-featured__icon--icon-star"></span>
+                              <span class="body-featured__icon body-featured__icon--icon-star"></span>
+                           </div>
+                           <div class="body-featured__comment">1200 ( Comment )</div>
+                        </div>
+                        
+                     </article>
+
+                     <article class="body-featured__card">
+                        <div class="body-featured__img">
+                           <img src="img/featured/02.webp" alt="">
+                        </div>
+                        <div class="body-featured__body">
+                           <h3 class="body-featured__title"><a class="body-featured__link" href="#">Figma UI Design</a></h3>
+                           <div class="body-featured__subtitle">Esther Howard</div>
+                           <div class="body-featured__rating rating">
+                              <span class="body-featured__icon body-featured__icon--icon-star"></span>
+                              <span class="body-featured__icon body-featured__icon--icon-star"></span>
+                              <span class="body-featured__icon body-featured__icon--icon-star"></span>
+                              <span class="body-featured__icon body-featured__icon--icon-star"></span>
+                              <span class="body-featured__icon body-featured__icon--icon-star"></span>
+                           </div>
+                           <div class="body-featured__comment">1200 ( Comment )</div>
+                        </div>
+                     </article>
+
+
+                     <article class="body-featured__card">
+                        <div class="body-featured__img">
+                           <img src="img/featured/03.webp" alt="">
+                        </div>
+                        <div class="body-featured__body">
+                           <h3 class="body-featured__title"><a class="body-featured__link" href="#">Figma UI Design</a></h3>
+                           <div class="body-featured__subtitle">Esther Howard</div>
+                           <div class="body-featured__rating rating">
                               <span class="body-featured__icon body-featured__icon--icon-star"></span>
                               <span class="body-featured__icon body-featured__icon--icon-star"></span>
                               <span class="body-featured__icon body-featured__icon--icon-star"></span>
@@ -163,31 +204,12 @@ information about atomic.</p>
 
                      <article class="body-featured__card">
                         <div class="body-featured__img">
-                           <img src="img/featured/02.png" alt="">
+                           <img src="img/featured/04.webp" alt="">
                         </div>
                         <div class="body-featured__body">
-                           <h3 class="body-featured__title">Figma UI Design</h3>
+                           <h3 class="body-featured__title"><a class="body-featured__link" href="#">Figma UI Design</a></h3>
                            <div class="body-featured__subtitle">Esther Howard</div>
-                           <div class="body-featured__star">
-                              <span class="body-featured__icon body-featured__icon--icon-star"></span>
-                              <span class="body-featured__icon body-featured__icon--icon-star"></span>
-                              <span class="body-featured__icon body-featured__icon--icon-star"></span>
-                              <span class="body-featured__icon body-featured__icon--icon-star"></span>
-                              <span class="body-featured__icon body-featured__icon--icon-star"></span>
-                           </div>
-                           <div class="body-featured__comment">1200 ( Comment )</div>
-                        </div>
-                     </article>
-
-
-                     <article class="body-featured__card">
-                        <div class="body-featured__img">
-                           <img src="img/featured/03.png" alt="">
-                        </div>
-                        <div class="body-featured__body">
-                           <h3 class="body-featured__title">Figma UI Design</h3>
-                           <div class="body-featured__subtitle">Esther Howard</div>
-                           <div class="body-featured__star">
+                           <div class="body-featured__rating rating">
                               <span class="body-featured__icon body-featured__icon--icon-star"></span>
                               <span class="body-featured__icon body-featured__icon--icon-star"></span>
                               <span class="body-featured__icon body-featured__icon--icon-star"></span>
@@ -200,12 +222,12 @@ information about atomic.</p>
 
                      <article class="body-featured__card">
                         <div class="body-featured__img">
-                           <img src="img/featured/04.png" alt="">
+                           <img src="img/featured/05.webp" alt="">
                         </div>
                         <div class="body-featured__body">
-                           <h3 class="body-featured__title">Figma UI Design</h3>
+                           <h3 class="body-featured__title"><a class="body-featured__link" href="#">Figma UI Design</a></h3>
                            <div class="body-featured__subtitle">Esther Howard</div>
-                           <div class="body-featured__star">
+                           <div class="body-featured__rating rating">
                               <span class="body-featured__icon body-featured__icon--icon-star"></span>
                               <span class="body-featured__icon body-featured__icon--icon-star"></span>
                               <span class="body-featured__icon body-featured__icon--icon-star"></span>
@@ -218,30 +240,12 @@ information about atomic.</p>
 
                      <article class="body-featured__card">
                         <div class="body-featured__img">
-                           <img src="img/featured/05.png" alt="">
+                           <img src="img/featured/06.webp" alt="">
                         </div>
                         <div class="body-featured__body">
-                           <h3 class="body-featured__title">Figma UI Design</h3>
+                           <h3 class="body-featured__title"><a class="body-featured__link" href="#">Figma UI Design</a></h3>
                            <div class="body-featured__subtitle">Esther Howard</div>
-                           <div class="body-featured__star">
-                              <span class="body-featured__icon body-featured__icon--icon-star"></span>
-                              <span class="body-featured__icon body-featured__icon--icon-star"></span>
-                              <span class="body-featured__icon body-featured__icon--icon-star"></span>
-                              <span class="body-featured__icon body-featured__icon--icon-star"></span>
-                              <span class="body-featured__icon body-featured__icon--icon-star"></span>
-                           </div>
-                           <div class="body-featured__comment">1200 ( Comment )</div>
-                        </div>
-                     </article>
-
-                     <article class="body-featured__card">
-                        <div class="body-featured__img">
-                           <img src="img/featured/06.png" alt="">
-                        </div>
-                        <div class="body-featured__body">
-                           <h3 class="body-featured__title">Figma UI Design</h3>
-                           <div class="body-featured__subtitle">Esther Howard</div>
-                           <div class="body-featured__star">
+                           <div class="body-featured__rating rating">
                               <span class="body-featured__icon body-featured__icon--icon-star"></span>
                               <span class="body-featured__icon body-featured__icon--icon-star"></span>
                               <span class="body-featured__icon body-featured__icon--icon-star"></span>
@@ -258,7 +262,7 @@ information about atomic.</p>
             <section class="benefit">
                <div class="benefit__container">
                   <div class="benefit__picture picture">
-                     <img src="img/benefit/01.jpg" alt="">
+                     <img src="img/benefit/01.webp" alt="">
                   </div>
 
                   <div class="benefit__body body-benefit">
@@ -358,7 +362,7 @@ information about atomic.</p>
                               and community
                               support</li>
                         </ul>
-                        <a href="#" class="plan__btn">Choose Plan</a>
+                        <a href="#" class="plan__btn btn">Choose Plan</a>
                      </article>
 
                      <article class="plans__item plans__item--favorite plan">
@@ -396,7 +400,7 @@ information about atomic.</p>
                               and community
                               support</li>
                         </ul>
-                        <a href="#" class="plan__btn btn plan__btn--primary ">Choose Plan</a>
+                        <a href="#" class="plan__btn plan__btn--blue btn btn--blue">Choose Plan</a>
                      </article>
 
                      <article class="plans__item plan">
@@ -433,7 +437,7 @@ information about atomic.</p>
                               and community
                               support</li>
                         </ul>
-                        <a href="#" class="plan__btn">Choose Plan</a>
+                        <a href="#" class="plan__btn  btn">Choose Plan</a>
                      </article>
 
                   </div>
@@ -441,6 +445,112 @@ information about atomic.</p>
 
                <div class="join-us__bgc"></div>
             </section>
+
+            <section class="reviews">
+               <div class="reviews__container">
+                  <h2 class="reviews__title">What Our Learners Say</h2>
+
+                  <!-- Slider main container -->
+                  <div class="reviews__slider swiper">
+                  <!-- Additional required wrapper -->
+                     <div class="swiper-wrapper">
+                        <!-- Slides -->
+                        <div class="swiper-slide ">
+                           <div class="item-review">
+                              <img class="item-review__avatar" src="img/slider/avatar/01.webp" alt="">
+                              <div class="item-review__author">Sophia T</div>
+                              <div class="item-review__position">Director, Producer</div>
+                              <ul class="item-review__rating rating">
+                                 <li class="rating__item rating__item--icon-star"></li>
+                                 <li class="rating__item rating__item--icon-star"></li>
+                                 <li class="rating__item rating__item--icon-star"></li>
+                                 <li class="rating__item rating__item--icon-star"></li>
+                                 <li class="rating__item rating__item--icon-star"></li>
+
+                              </ul>
+                              <div class="item-review__text">
+                                 <p>I'm impressed by the quality of courses and the support from LearnXpert's team. Highly recommended!</p>
+                              </div>
+                           </div>
+                        </div>
+
+                        <div class="swiper-slide  ">
+                           <div class="item-review">
+                              <img class="item-review__avatar" src="img/slider/avatar/01.webp" alt="">
+                              <div class="item-review__author">Sophia T</div>
+                              <div class="item-review__position">Director, Producer</div>
+                              <ul class="item-review__rating rating">
+                                 <li class="rating__item rating__item--icon-star"></li>
+                                 <li class="rating__item rating__item--icon-star"></li>
+                                 <li class="rating__item rating__item--icon-star"></li>
+                                 <li class="rating__item rating__item--icon-star"></li>
+                                 <li class="rating__item rating__item--icon-star"></li>
+
+                              </ul>
+                              <div class="item-review__text">
+                                 <p>I'm impressed by the quality of courses and the support from LearnXpert's team. Highly recommended!</p>
+                              </div>
+                              
+                           </div>
+                        </div>
+
+                        <div class="swiper-slide ">
+                           <div class="item-review">
+                              <img class="item-review__avatar" src="img/slider/avatar/02.webp" alt="">
+                              <div class="item-review__author">Sophia T</div>
+                              <div class="item-review__position">Director, Producer</div>
+                              <ul class="item-review__rating rating">
+                                 <li class="rating__item rating__item--icon-star"></li>
+                                 <li class="rating__item rating__item--icon-star"></li>
+                                 <li class="rating__item rating__item--icon-star"></li>
+                                 <li class="rating__item rating__item--icon-star"></li>
+                                 <li class="rating__item rating__item--icon-star"></li>
+
+                              </ul>
+                              <div class="item-review__text">
+                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem neque molestias ad laboriosam nobis ipsam laborum cum. Praesentium, voluptatum vitae veniam nulla, aliquam fuga autem cum delectus necessitatibus dolore soluta. Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio perferendis voluptatem voluptate possimus itaque aliquam, nihil rerum maiores dolores totam dolore, voluptas obcaecati accusantium provident natus? Tempora qui voluptate repellat!</p>
+                                 
+                              </div>
+                                 
+                           </div>
+                        </div>
+
+                     </div>
+                     <!-- If we need pagination -->
+                     <div class="swiper-pagination"></div>
+
+                                 <img class="swiper__bg swiper__bg--left-top" src="img/slider/bg/01.webp" alt="">
+                                 <img class="swiper__bg swiper__bg--left-middle" src="img/slider/bg/02.webp" alt="">
+                                 <img class="swiper__bg swiper__bg--left-bottom" src="img/slider/bg/03.webp" alt="">
+                                 <img class="swiper__bg swiper__bg--right-top" src="img/slider/bg/04.webp" alt="">
+                                 <img class="swiper__bg swiper__bg--right-middle" src="img/slider/bg/05.webp" alt="">
+
+                  </div>
+                  
+                     
+                  
+                  
+               </div>
+            </section>
+
+            <section class="banner">
+               <div class="banner__container">
+                  <div class="banner__content content-banner">
+                     <h2 class="content-banner__title">Start Your Learning Journey Today!</h2>
+                     <div class="content-banner__text">
+                        <p>
+                           Join LearnXpert and embark on a path of continuous growth and knowledge.
+                        </p>
+                     </div>
+                  </div>
+                  <div class="banner__btn">
+                     <button class="banner__btn btn btn--blue">Get Started</button>
+                  </div>
+               </div>
+               <div class="banner__bgc"></div>
+            </section>
+
+            
 
          </main>
          <footer class="footer">
@@ -524,6 +634,7 @@ information about atomic.</p>
             </div>
          </footer>
       </div>
+      <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
       <script src="js/script.js"></script>
    </body>
 </html>
