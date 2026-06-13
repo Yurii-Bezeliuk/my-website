@@ -318,6 +318,9 @@ input[type=radio] {
   transition: width 0.3s;
   background-color: #737373;
 }
+html:not([data-fls-touch]) .menu-header__link:hover {
+  color: #252B42;
+}
 html:not([data-fls-touch]) .menu-header__link:hover::after {
   width: 100%;
 }
@@ -1047,6 +1050,14 @@ html:not([data-fls-touch]) .header-featured__link:hover::after {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+@media (width > 64.6875em) {
+  .body-featured__card {
+    max-width: 21.4375rem;
+    max-height: 9.375rem;
+  }
+}
+.body-featured__card {
   -webkit-box-shadow: 0 0.8125rem 1.1875rem 0 rgba(0, 0, 0, 0.07);
           box-shadow: 0 0.8125rem 1.1875rem 0 rgba(0, 0, 0, 0.07);
   border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;

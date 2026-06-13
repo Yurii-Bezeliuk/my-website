@@ -122,6 +122,7 @@
     }
     html:not([data-fls-touch]) & {
       &:hover {
+        color: $bg-dark;
         &::after {
           width: 100%;
         }

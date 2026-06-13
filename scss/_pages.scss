@@ -305,7 +305,12 @@
     text-align: left;
     overflow: hidden;
     display: flex;
+
     align-items: center;
+    @media (width > toEm(1035)) {
+      max-width: toRem(343);
+      max-height: toRem(150);
+    }
     box-shadow: 0 toRem(13) toRem(19) 0 rgba(0, 0, 0, 0.07);
     border-radius: toRem(8) toRem(8) toRem(8) toRem(8);
   }
